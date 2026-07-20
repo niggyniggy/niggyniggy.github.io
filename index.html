@@ -6,6 +6,23 @@
     <title>Niggy Niggy </title>
 </head>
 <body>
-  <audio src="niggy niggy.mp3" autoplay controls></audio>
+    <audio id="bg-audio" src="niggy niggy.mp3" loop></audio>
+
+<script>
+  const audio = document.getElementById('bg-audio');
+
+  // 1. Try to play immediately on page open
+  window.addEventListener('DOMContentLoaded', () => {
+    audio.play().catch(error => {
+      console.log("Browser blocked auto-play. Waiting for user interaction...");
+      
+      // 2. Fallback: Play on the user's very first click anywhere on the page
+      document.addEventListener('click', () => {
+        audio.play();
+      }, { once: true }); // { once: true } removes the listener after it runs once
+    });
+  });
+</script>
+
 </body>
 </html>
