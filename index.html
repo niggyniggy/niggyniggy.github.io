@@ -5,8 +5,8 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <title>Niggy Niggy </title>
 </head>
-<body style="background-color: black;>
-    <h1> Click anywhere on the page to play</h1>
+<body style="background-color: black;">
+    <h1 style="color: white"> Click anywhere on the page to play</h1>
     <audio id="bg-audio" src="niggy niggy.mp3" loop></audio>
 
 <script>
@@ -20,6 +20,7 @@
       // 2. Fallback: Play on the user's very first click anywhere on the page
       document.addEventListener('click', () => {
         audio.play();
+        
       }, { once: true }); // { once: true } removes the listener after it runs once
     });
   });
